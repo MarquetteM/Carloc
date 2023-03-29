@@ -13,9 +13,10 @@ $infosVehicule = $classVehicule->getVehicule($idVehicule);
   <link rel="stylesheet" href="css/cssDetail.css">
 </head>
 <body>
-    <section id="details"
-        <h1 class="details_title">DETAILS DU VEHICULE</h1>
+    <section id="details">
+        <h1 class="details_title"> DETAILS DU VEHICULE</h1>
     </section>
+    
     <?php
     echo "<img src='images/".$infosVehicule['image']."'>";
     echo "<main>
@@ -77,6 +78,19 @@ $infosVehicule = $classVehicule->getVehicule($idVehicule);
                 </tr>
             </table>
         </section>
-    </main>";
+        
+    <div class='bouttons'>";
+    if ($dispo==1){
+        echo "<button class='validate-button'>Réserver ce véhicule</button>";
+    }
+    else{
+        echo "<button class='annul-button'>Annuler la réservation</button>";
+    }
+    ?>
+    <button class='return-button'>Retour</button>
+    <button class='validate-button'>Réserver ce véhicule</button>
+    <button class='annul-button'>Annuler la réservation</button>
+    </div>
+    </main>"
     ?>
 </body>
