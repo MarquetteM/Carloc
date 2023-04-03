@@ -79,18 +79,21 @@ $infosVehicule = $classVehicule->getVehicule($idVehicule);
             </table>
         </section>
         
-    <div class='bouttons'>";
-    if ($dispo==1){
-        echo "<button class='validate-button'>Réserver ce véhicule</button>";
+    <div class='bouttons'>" ;
+    if ($infosVehicule['disponible']==1){
+        echo "<div class='validate-button'>
+                    <a href=reserver.php?id=".$idVehicule.">Réserver ce véhicule</a>
+              </div>";
     }
     else{
-        echo "<button class='annul-button'>Annuler la réservation</button>";
+        echo "<div class='annul-button'>
+                <a href=annuler.php?id=".$idVehicule.">Annuler la réservation</a>
+            </div>";
     }
     ?>
-    <button class='return-button'>Retour</button>
-    <button class='validate-button'>Réserver ce véhicule</button>
-    <button class='annul-button'>Annuler la réservation</button>
+        <div class='retour-button'>
+            <a href=listeVehicule.php>Retour</a>
+        </div>
     </div>
-    </main>"
-    ?>
+    </main>
 </body>
