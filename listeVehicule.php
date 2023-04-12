@@ -1,6 +1,7 @@
 <!doctype html>
 <?php
     require "Modele/VehiculeDb.php";
+	session_start();
 ?>
 <html lang="fr">
 <head>
@@ -26,7 +27,7 @@
 						echo "<span>".$vehicule['km']." Km</span>";
 						echo "<span class='prix'>".$vehicule['prixKm']."</span>";
 						if ($vehicule['disponible'] == 1) {
-							echo "<span>Disponibilité</span>";
+							echo "<span>Disponible</span>";
 						} else {
 							echo "<span>Non disponible</span>";
 						}

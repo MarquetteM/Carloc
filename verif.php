@@ -9,6 +9,6 @@ $compte = $classUtilisateur->getUtilisateur($ident, $mdp);
 if ($compte == 0) {
 	header ('Location: index.php');
 } else {
-	$_SESSION["idUtil"]= $compte['id'];
+	$_SESSION["idUtil"] = $compte ["id"];
 	header ('Location: listeVehicule.php');
 }

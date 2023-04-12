@@ -1,4 +1,6 @@
 <?php
+session_start();
+echo "Test".$_SESSION["idUtil"];
 require "Modele/VehiculeDb.php";
 //recherche l'id du véhicule
 $idVehicule = $_REQUEST["id"];
@@ -58,11 +60,11 @@ $infosVehicule = $classVehicule->getVehicule($idVehicule);
                 </tr>
                 <tr>
                     <th>Chevaux</th>
-                    <td>".$infosVehicule['chevaux']."</td>
+                    <td>".$infosVehicule['chevaux']." Ch</td>
                 </tr>
                 <tr>
                     <th>Couple</th>
-                    <td>".$infosVehicule['couple']."</td>
+                    <td>".$infosVehicule['couple']." Nm</td>
                 </tr>
                 <tr>
                     <th>Vitesse Max</th>
@@ -82,7 +84,7 @@ $infosVehicule = $classVehicule->getVehicule($idVehicule);
     <div class='bouttons'>" ;
     if ($infosVehicule['disponible']==1){
         echo "<div class='validate-button'>
-                    <a href=reserver.php?id=".$idVehicule.">Réserver ce véhicule</a>
+                    <a href=reservationVehicule.php?id=".$idVehicule.">Réserver ce véhicule</a>
               </div>";
     }
     else{
@@ -91,7 +93,7 @@ $infosVehicule = $classVehicule->getVehicule($idVehicule);
             </div>";
     }
     ?>
-        <div class='retour-button'>
+        <div class='return-button'>
             <a href=listeVehicule.php>Retour</a>
         </div>
     </div>
