@@ -13,6 +13,15 @@ class UtilisateurDb extends Modele {
 		}
     }
 
+	public function getUtilisateurId ($id) {
+		$sql = "SELECT nom, prenom FROM utilisateur WHERE id = ?";
+		$resultat = $this->executerRequete($sql, array ($id));
+		if ($resultat->rowCount() > 0)
+			return $resultat->fetch();
+		else
+			return 0;
+	}
+
     public function modifUtilisateurId ($id, $identifiant, $mdp, $nom, $prenom) {
 		$sql = "UPDATE utilisateur SET identifiant = ?, motDePasse = ?, nom = ?, prenom = ? WHERE id = ?"; 
 		$this->executerRequete($sql, array ($identifiant, $this->cryptage($mdp), $nom, $prenom, $id));
