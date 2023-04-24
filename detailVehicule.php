@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo "Test".$_SESSION["idUtil"];
 require "Modele/VehiculeDb.php";
 //recherche l'id du véhicule
 $idVehicule = $_REQUEST["id"];
