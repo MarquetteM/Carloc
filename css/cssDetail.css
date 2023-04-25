@@ -12,6 +12,7 @@ main {
 h2 {
 	font-size: 28px;
 	margin-bottom: 10px;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
 table {
@@ -39,7 +40,7 @@ img{
     margin-top: 10%;
     margin-right: 5%;
     height: 400px;
-    width: 600px;
+    width: 650px;
 }
 form {
 	background-color: #fff;
@@ -61,10 +62,25 @@ form button:hover{
 	background-color:#eb7384;
 	color:#fff;
 }
-#validate-button a {
-	 background-color: #ea1f33;
-	 color: #fff;
-	 padding: 5px 20px;
-	 font-size: 15px;
-	 margin-top: 15px;
+
+.button {
+	background-color: #eb7371;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.button a {
+	text-decoration: none;
+    color: white;
+}
+ .h2{
+	font-family: 'Roboto' , sans-serif;
  }
