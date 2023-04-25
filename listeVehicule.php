@@ -28,6 +28,7 @@
 				//recherche la liste des vehicules dans la base
 				$classVehicules = new VehiculeDb();
 				$vehicules = $classVehicules->getVehicules();
+				print_r ($vehicules);
 				foreach ($vehicules as $vehicule) {
 					echo "<li class='car'>";
 						echo "<div>";

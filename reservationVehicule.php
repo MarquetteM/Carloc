@@ -3,6 +3,7 @@
 session_start();
     require "Modele/VehiculeDb.php";
     require "Modele/UtilisateurDb.php";
+    require "Modele/LocationDb/php";
     //recherche l'id du véhicule
 $idVehicule = $_REQUEST["id"];
 $classVehicule = new VehiculeDb();
@@ -10,6 +11,8 @@ $infosVehicule = $classVehicule->getVehicule($idVehicule);
 $id = $_SESSION["idUtil"];
 $classUtilisateur = new UtilisateurDb();
 $utilisateur = $classUtilisateur->getUtilisateurId($id);
+$classLocation = new LocationDb();
+$location = $classLocation->ajoutLocation($id);
 ?>
 <html lang="en">
 <head>
@@ -17,6 +20,16 @@ $utilisateur = $classUtilisateur->getUtilisateurId($id);
   <title>Confirmation location</title>
   <link rel="stylesheet" href="css/cssReservation.css">
 </head>
+<!-- <header>
+	<div class="container2">
+		<img src="Img/logo_carloc.png">
+        <nav>
+          <ul>
+            <li><a href="index.php">Déconnexion</a></li>
+          </ul>
+        </nav>
+      </div>
+</header> -->
 <body>
         <div class="container">
         <h1>Réservation du véhicule</h1>
@@ -50,14 +63,15 @@ $utilisateur = $classUtilisateur->getUtilisateurId($id);
             </div>
             <div class="details">
             <span>Prix :</span>
-            <span><?php echo $infosVehicule['prixKm'];?></span>
+            <span><?php echo $infosVehicule['prixKm'];?> €/Km</span>
             </div>
             <?php
             if ($infosVehicule['disponible']==1){
-            echo'<button class="button"><a href=" "> Confirmer la réservation </a>';
+            echo'<button class="button"><a href="modifLocation.php?id:"'$idVehicule.'& disp:'.$dispo.'> Confirmer la réservation </a>';
+            
             }
             ?>
             <button class="button"><a href=javascript:history.go(-1)>Retour</a>
         </div>
-        </body>
-        </html>
+    </body>
+</html>
