@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "modele/UtilisateurDb.php";
+require "Modele/UtilisateurDb.php";
 
 $classUtilisateur = new UtilisateurDb();
 $ident = $_POST["ident"];

@@ -10,10 +10,6 @@ $infosVehicule = $classVehicule->getVehicule($idVehicule);
 $id = $_SESSION["idUtil"];
 $classUtilisateur = new UtilisateurDb();
 $utilisateur = $classUtilisateur->getUtilisateurId($id);
-//$date = getdate();
-$dateJour = date( 'yyyy-mm-dd');
-//$dateJour = $date['year']."-".$date['mon']."-".$date['mday'];
-$dateJour2 = "2024-05-13";
 ?>
 <html lang="en">
 <head>
@@ -23,54 +19,45 @@ $dateJour2 = "2024-05-13";
 </head>
 <body>
         <div class="container">
-            <?php 
-            echo "<h1>Confirmation de location du véhicule</h1>
-            <div class='details'>
+        <h1>Réservation du véhicule</h1>
+            <div class="details">
                 <span>Nom :</span>
-                <span>".$utilisateur['nom']."</span>
+                <span><?php echo $utilisateur['nom'];?></span>
             </div>
-            <div class='details'>
+            <div class="details">
                 <span>Prénom :</span>
-                <span>".$utilisateur['prenom']."</span>
+                <span><?php echo $utilisateur['prenom'];?></span>
             </div>
-            <div class='details'>
+            <div class="details">
             <span>Marque du véhicule :</span>
-            <span>".$infosVehicule['marque']."</span>
+            <span><?php echo $infosVehicule['marque'];?></span>
             </div>
-            <div class='details'>
+            <div class="details">
                 <span>Modèle du véhicule :</span>
-                <span>".$infosVehicule['modele']."</span>
+                <span><?php echo $infosVehicule['modele'];?></span>
             </div>
-            <div class='details'>
+            <div class="details">
                 <span>KmDébut :</span>
-                <input type='number' step='any' id='kmDebut' name='kmDebut'>
+                <input type="number" step="any" id="kmDebut" name="name">
             </div>
-            <div class='details'>
+            <div class="details">
             <span>Date début location :</span>
-            <input type='date' value='".$dateJour."' id='dateDebut' name='dateDebut'>
+            <input type="date" id="dateDebut" name="name">
             </div>
-            <div class='details'>
+            <div class="details">
             <span>Date fin location :</span>
-            <input type='date' value='".$dateJour2."' id='dateFin' name='dateFin'>
+            <input type="date" id="dateFin" name="name">
             </div>
-            <div class='details'>
-                <span>Prix :</span>
-                <span>".$infosVehicule['prixKm']."€/Km</span>
-            </div>";
-
+            <div class="details">
+            <span>Prix :</span>
+            <span><?php echo $infosVehicule['prixKm'];?></span>
+            </div>
+            <?php
             if ($infosVehicule['disponible']==1){
-
-            echo"<div class='confim-button'>Confirmer la réservation
-            </div>";
+            echo'<button class="button"><a href=" "> Confirmer la réservation </a>';
             }
-            
             ?>
-            <input type="date" id="start" name="trip-start"<?php echo"
-       value='".$dateJour."'
-       min='2022-01-01' max='2022-02-01'>"; echo "**".$dateJour;?>
-            <div class="return-button">
-                <a href="listeVehicule.php"> Retour </a>
-            </div>
+            <button class="button"><a href=javascript:history.go(-1)>Retour</a>
         </div>
         </body>
         </html>
