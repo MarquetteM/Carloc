@@ -26,4 +26,14 @@ class VehiculeDb extends Modele {
 		$sql = 'INSERT INTO vehicules(modele marque, km, couleur, etat, prixKm, disponible, image, moteur, carburant, transmission, chevaux, couple, vitesse, dimLong, dimLarg, dimH, poids) VALUES (?, ?, ?, ?, ?, ?, ?)';
 		$this->executerRequete($sql, array());
 	}
+
+	public function modifVehiculeDispo ($id, $dispo) {
+		$sql = "UPDATE vehicules SET disponible=? WHERE id = ?";
+		$this->executerRequete($sql, array($id, $dispo));
+	}
+
+	public function isVehiculeDispo ($id) {
+		$sql = "SELECT disponible FROM vehicules WHERE id = ?";
+		$this->executerRequete($sql, array($id))
+	}
 }

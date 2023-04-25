@@ -17,6 +17,9 @@ abstract class Modele {
 		$dsn = "mysql:host=sioecorieqwade.mysql.db;dbname=sioecorieqwade;charset=utf8";
 		$login = "sioecorieqwade";
 		$mdp = "NXfeGwbIb9";
+        /* $dsn = "mysql:host=localhost;dbname=carloc;charset=utf8";
+		$login = "root";
+		$mdp = ""; */
         if ($this->bdd == null){
             $this->bdd = new PDO($dsn,$login,$mdp,
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
